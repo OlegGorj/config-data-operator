@@ -1,0 +1,11 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: config-data-operator
+subjects:
+- kind: ServiceAccount
+  name: config-data-operator
+roleRef:
+  kind: Role
+  name: config-data-operator
+  apiGroup: rbac.authorization.k8s.io
