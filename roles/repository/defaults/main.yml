@@ -1,0 +1,3 @@
+---
+state: present
+config_service_url: "http://34.69.87.211:8000"
