@@ -13,7 +13,7 @@ CONFIG_SERVICE_URL=$1
 MAINPATH=$2 # /opt/ansible/
 BUILD_TIME=$(date -u '+%Y-%m-%d_%H:%M:%S')
 
-[ "$#" -eq 2 ] || die "2 argument required, $# provided"
+[ "$#" -eq 2 ] || exitscript "2 argument required, $# provided"
 
 # get list of number of configurations
 CONFIGS_NUM=$(curl -X GET ${CONFIG_SERVICE_URL}/api/v2/configmaps/sandbox/@ -H 'Cache-Control: no-cache')
