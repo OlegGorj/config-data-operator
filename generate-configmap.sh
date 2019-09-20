@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# Script takes 2 arguments:
+# - configuration service url in form: http://<ip>:<port>
+# - local directory to store output yaml file (e.g. /tmp  )
+
 exitscript () {
     echo >&2 "$@"
     exit 1
