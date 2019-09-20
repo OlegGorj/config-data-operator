@@ -15,8 +15,8 @@ do
   NAMESPACE=$(echo $CONF_JSON | jq '.namespace' | tr -d '"' )
   CONFIGMAP=$(echo $CONF_JSON | jq '.configmap' | sed 's/.json//g' | tr -d '"' )
   CONFIG=$(echo $CONF_JSON | jq '.config' | sed 's/.json//g' | tr -d '"' )
-  # create list of keys in format <.keys.*.config_service_key>|<.keys.*.configmap_key>
-  # declare -a list=( $( echo $CONF_JSON | jq -c '.keys | .[].config_service_key' | tr -d '"' )    )
+  # create list of keys
+  #  kyes formated as  <.keys.*.config_service_key>|<.keys.*.configmap_key>
   declare -a list=( $(echo $CONF_JSON | jq -c '.keys[] | .config_service_key + "|" + .configmap_key' | tr -d '"') )
 
   # first, generate configmap from template
@@ -26,6 +26,8 @@ do
   # itterate through list of keys
   for element in "${list[@]}"
   do
+    # make curl call to config service to get key's value
+    # to get the key from the list: $(echo ${element} | cut -f1 -d'|')
     URL="${CONFIG_SERVICE_URL}/api/v2/${CONFIG}/sandbox/$(echo ${element} | cut -f1 -d'|')" && CONF_VAL=$(curl -X GET ${URL} )
     # add key to 'data' section
     echo $(yq --arg key $(echo ${element} | cut -f2 -d'|') --arg val $(echo $CONF_VAL | base64)  '.data |= . + { ($key) : ($val) } ' ${MAINPATH}/configmap_${CONFIGMAP}.json) > ${MAINPATH}/configmap_${CONFIGMAP}.json
