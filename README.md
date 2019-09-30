@@ -1,10 +1,10 @@
-# Kubernertes Configuration operator
+# Kubernetes Configuration operator
 
-The operator designed to dynamically manage ConfigMaps for Kubernertes cluster, based on Config Data (config-data-service)
+The operator designed to dynamically manage ConfigMaps for Kubernetes cluster, based on Config Data (config-data-service)
 
+### Project status: in development
 
-
-## Initialize GCP project and connect to Kubernertes cluster
+## Initialize GCP project and connect to Kubernetes cluster
 
 To list all GCP projects you have access to:
 
@@ -31,13 +31,13 @@ $ gcloud auth login
 
 _note: add instructions for k8s cluster deployment_
 
-Get the credentials for your Kubernertes cluster (assuming you have one deployed)
+Get the credentials for your Kubernetes cluster (assuming you have one deployed)
 
 ```
 $ gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project my_gcp_project
 ```
 
-And, to test if you have access to Kubernertes cluster:
+And, to test if you have access to Kubernetes cluster:
 
 ```
 $ kubectl get nodes
