@@ -1,0 +1,8 @@
+apiVersion: cloudnative.redhat.com/v1alpha1
+kind: Repository
+metadata:
+  name: config-repository
+spec:
+  replicas: 1
+  gitUrl: "https://github.com/cvicens/archetype-operator-customer-service.git"
+  gitRef: "master"
