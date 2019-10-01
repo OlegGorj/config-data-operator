@@ -1,0 +1,19 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: repositories.cloudnative.redhat.com
+spec:
+  group: cloudnative.redhat.com
+  names:
+    kind: Repository
+    listKind: RepositoryList
+    plural: repositories
+    singular: repository
+  scope: Namespaced
+  subresources:
+    status: {}
+  version: v1alpha1
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
