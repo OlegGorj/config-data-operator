@@ -1,0 +1,8 @@
+---
+- name: Execute the command to generate configmap yaml file based on config service {{ config_service_url }}.
+  shell: /opt/ansible/generate-configmap.sh {{ config_service_url }}  /opt/ansible/ {{ token }}
+
+- name: Apply configmap
+  k8s:
+    state: present
+    src: /opt/ansible/configmap.yaml

@@ -3,6 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: <configmap-name>
-  maintained_by: config_operator
   namespace: default
+  labels:
+    maintained_by: config_operator
 data:
