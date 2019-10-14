@@ -1,5 +1,9 @@
+
 ---
 - version: v1alpha1
   group: cloudnative.redhat.com
   kind: Repository
   role: /opt/ansible/roles/repository
+
+
+
