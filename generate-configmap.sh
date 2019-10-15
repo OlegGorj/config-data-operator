@@ -9,11 +9,14 @@ exitscript () {
     exit 1
 }
 
+
 CONFIG_SERVICE_URL=$1
 MAINPATH=$2 # /opt/ansible/
 BUILD_TIME=$(date -u '+%Y-%m-%d_%H:%M:%S')
 
 [ "$#" -eq 2 ] || exitscript "2 argument required, $# provided"
+
+
 
 # get list of number of configurations
 CONFIGS_NUM=$(curl -X GET ${CONFIG_SERVICE_URL}/api/v2/configmaps/sandbox/@ -H 'Cache-Control: no-cache')
@@ -35,6 +38,7 @@ do
   # create list of keys
   #  keys formated as  <.keys.*.config_service_key>|<.keys.*.configmap_key>
   declare -a list=( $(echo $CONF_JSON | jq -c '.keys[] | .config_service_key + "|" + .configmap_key' | tr -d '"') )
+
 
   # first, generate configmap from template
   yq  --arg var ${CONFIGMAP}  '.metadata.name = ($var) ' ${MAINPATH}/configmap.template > ${MAINPATH}/configmap_${CONFIGMAP}.json
