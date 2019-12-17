@@ -42,6 +42,7 @@ do
 
   # first, generate configmap from template
   yq  --arg var ${CONFIGMAP}  '.metadata.name = ($var) ' ${MAINPATH}/configmap.template > ${MAINPATH}/configmap_${CONFIGMAP}.json
+ 
   # set the namespace
   echo $(yq  --arg var ${NAMESPACE}  '.metadata.namespace = ($var) ' ${MAINPATH}/configmap_${CONFIGMAP}.json) > ${MAINPATH}/configmap_${CONFIGMAP}.json
   # itterate through list of keys
@@ -61,6 +62,10 @@ do
   ((i++))
 done
 
+
 cat ${MAINPATH}/configmap_*.yaml > ${MAINPATH}/configmap.yaml && rm -f configmap_*.yaml
 
+
 echo "********** end of the script *********"
+
+
