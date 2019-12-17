@@ -52,9 +52,7 @@ gke-standard-cluster-1-default-pool-b967307a-whc7   Ready    <none>   3m3s   v1.
 
 ```
 
-
 ## Deploy Config Operator
-
 
 Clone operator repo:
 
@@ -62,7 +60,6 @@ Clone operator repo:
 https://github.com/OlegGorj/config-data-operator.git
 cd config-data-operator
 ```
-
 
 Deploy operator:
 ```
