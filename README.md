@@ -9,7 +9,6 @@ The operator designed to dynamically manage ConfigMaps for Kubernetes cluster, b
 
 To list all GCP projects you have access to:
 
-
 ```
 $ gcloud projects list
 PROJECT_ID                  NAME                        PROJECT_NUMBER
@@ -18,7 +17,6 @@ my_gcp_project              my_gcp_project              90002648334518
 ...
 
 ```
-
 
 To select project, run:
 
