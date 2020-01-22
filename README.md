@@ -6,7 +6,9 @@ The operator designed to dynamically manage ConfigMaps for Kubernetes cluster, b
 
 ## Initialize GCP project and connect to Kubernetes cluster
 
+
 To list all GCP projects you have access to:
+
 
 ```
 $ gcloud projects list
@@ -46,6 +48,7 @@ gke-standard-cluster-1-default-pool-b967307a-b2cz   Ready    <none>   3m2s   v1.
 gke-standard-cluster-1-default-pool-b967307a-nxz6   Ready    <none>   3m3s   v1.13.7-gke.8
 gke-standard-cluster-1-default-pool-b967307a-whc7   Ready    <none>   3m3s   v1.13.7-gke.8
 ```
+
 
 ## Deploy Config Operator
 
